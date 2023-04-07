@@ -8,9 +8,6 @@
                 v-model="bidAmount" placeholder= "Enter Bid Amount"
               />
                 <button>Place Bid</button>
-                <img
-                  v-show="isBid"
-                  id="isBid"                  >
             </b-input-group>
           </form>
     </div>
