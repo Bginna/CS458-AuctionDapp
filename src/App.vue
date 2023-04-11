@@ -2,7 +2,27 @@
     <div class="auction-app">
       <h1>Ethereum Auction Dapp</h1>
       <p>Current highest bid: {{ highestBid }}</p>
-      <input v-model="bidAmount" placeholder="Enter bid amount" />
-      <button @click="placeBid">Place Bid</button>
+      <form @submit.prevent="handleSubmit(bidAmount)">
+            <b-input-group>
+              <input
+                v-model="bidAmount" placeholder= "Enter Bid Amount"
+              />
+                <button>Place Bid</button>
+            </b-input-group>
+          </form>
     </div>
   </template>
+
+<script>
+//TODO: Figure out what kind of loader we need
+//import {Auction} from "../contracts/Auction.sol"
+
+export default {
+  methods: {
+    handleSubmit(bidAmount) {
+      console.log(bidAmount);
+//      Auction.bid(bidAmount);
+    }
+  }
+}
+</script>
