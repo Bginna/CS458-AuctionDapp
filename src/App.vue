@@ -14,13 +14,14 @@
   </template>
 
 <script>
-
-
+//TODO: Figure out what kind of loader we need
+//import {Auction} from "../contracts/Auction.sol"
 
 export default {
   methods: {
     handleSubmit(bidAmount) {
       console.log(bidAmount);
+//      Auction.bid(bidAmount);
     }
   }
 }
