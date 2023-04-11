@@ -1,4 +1,15 @@
-const { defineConfig } = require('@vue/cli-service')
-module.exports = defineConfig({
-  transpileDependencies: true
-})
+module.exports = {
+    chainWebpack: config => {
+      config.module
+        .rule('solidity')
+        .test(/\.sol$/)
+        .use('solc-loader')
+        .loader('solc-loader')
+        .options({
+          compiler: 'solcjs',
+          solidity: {
+            version: '0.8.18',
+          },
+        })
+    }
+  }
