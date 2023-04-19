@@ -1,19 +1,21 @@
 <template>
-    <div class="auction-app">
-      <h1>Ethereum Auction Dapp</h1>
-      <p>Current highest bid: {{ highestBid }} ETH</p>
-      <p>Current highest bidder: {{ highestBidder }}</p>
-      <form @submit.prevent="placeBid">
-        <!-- might need to: "npm install bootstrap-vue" -->
-            <b-input-group> 
-              <input v-model="bidAmount" placeholder="Enter Bid Amount" />
-              <button type="submit">Place Bid</button>
-            </b-input-group>
-      </form>
-    </div>
+  <div class="auction-app">
+    <h1>Ethereum Auction Dapp</h1>
+    <p>Current highest bid: {{ highestBid }} ETH</p>
+    <p>Current highest bidder: {{ highestBidder }}</p>
+    <form @submit.prevent="placeBid">
+      <!-- might need to: "npm install bootstrap-vue" -->
+      <b-input-group class="input-group">
+        <input class="form-control" v-model="bidAmount" placeholder="Enter Bid Amount" />
+        <button class="btn btn-primary" type="submit">Place Bid</button>
+      </b-input-group>
+    </form>
+  </div>
 </template>
 
 <script>
+import 'bootstrap/dist/css/bootstrap.css'
+import '@/assets/style.css';
 import web3 from '@/web3';
 import AuctionContract from "../contracts/artifacts/Auction.json" //json file compiled from remix
 const contractAddress = '0x8ec80b506951302Cc1908289FD7F427740F9b466'; //replace with your contract address
