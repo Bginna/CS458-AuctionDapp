@@ -20,6 +20,19 @@
 			},
 			{
 				"inputs": [],
+				"name": "getContractAddress",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "highestBid",
 				"outputs": [
 					{
@@ -58,7 +71,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"Auction.sol": "Auction"
+			"contracts/Auction.sol": "Auction"
 		},
 		"evmVersion": "paris",
 		"libraries": {},
@@ -72,12 +85,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"Auction.sol": {
-			"keccak256": "0xcbb73b53cdf3929187d7d8cbaee0e3a20e97e6f4e6e61c9d3f34abf423a95e84",
+		"contracts/Auction.sol": {
+			"keccak256": "0xdad0a9a478451add373b9fd92d21fc1abc00d0f3a71fe949cd31870aa19ee7bd",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://8fdb7c19c68d55f99e79af645ca31a9691c81a4d868b86b127be1d551450a825",
-				"dweb:/ipfs/QmUQ6bKT3NmfXn8oa8xSW3bDwqenSjrA6fFvqyUr3FFqrY"
+				"bzz-raw://f43c822f35385a9e1cea7a65169db28df5390c6844422a60ced6d082b7b6889b",
+				"dweb:/ipfs/QmdkR6UrjxsCcKutoaUpt56DidAiz5hP1VPaeXDLqg5sX3"
 			]
 		}
 	},

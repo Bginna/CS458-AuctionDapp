@@ -2,8 +2,8 @@
 pragma solidity ^0.8.18;
 
 contract Auction {
-    address public highestBidder;
-    uint256 public highestBid;
+    address public highestBidder = 0;
+    uint256 public highestBid = 0;
 
     function bid(uint256 bidAmount) public payable {
         require(bidAmount > highestBid, "There already is a higher bid.");
@@ -16,5 +16,10 @@ contract Auction {
         
         highestBidder = msg.sender;
         highestBid = bidAmount;
+    }
+
+    function contractAddress() public view returns (address){
+        address contractAddress = address(this);
+        return contractAddress;
     }
 }
