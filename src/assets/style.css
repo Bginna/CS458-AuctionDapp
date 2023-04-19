@@ -1,0 +1,12 @@
+.auction-app {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.input-group {
+	display: flex;
+	align-items: center;
+}
