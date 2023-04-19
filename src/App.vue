@@ -16,7 +16,7 @@
 <script>
 import web3 from '@/web3';
 import AuctionContract from "../contracts/artifacts/Auction.json" //json file compiled from remix
-const contractAddress = 'youraddresshere'; //replace with your contract address
+const contractAddress = '0x8ec80b506951302Cc1908289FD7F427740F9b466'; //replace with your contract address
 
 export default {
   //declare and initialize data
@@ -29,15 +29,17 @@ export default {
   //initialize data from blockchain and watch for changes in blockchain data (i.e. highest bid)
   async created() {
     this.auction = new web3.eth.Contract(AuctionContract.abi, contractAddress); //https://web3js.readthedocs.io/en/v1.2.0/web3-eth-contract.html
+    console.log(AuctionContract.abi);
     this.highestBid = await this.auction.methods.highestBid().call();
-    this.highestBid = web3.utils.fromWei(this.highestBid, "ether");
-    this.highestBidder = await this.auction.methods.highestBidder().call();
+    //this.highestBid = web3.utils.fromWei(this.highestBid, "ether");
+    //this.highestBidder = await this.auction.methods.highestBidder().call();
   },
   methods: {
     //place bid function that will be called when user clicks "Place Bid" button
     async placeBid() {
       console.log('Placing bid...');
       const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' }); //https://ethereum.stackexchange.com/questions/117498/window-ethereum-request-method-eth-requestaccounts-does-not-open
+      console.log(accounts);
       const bidAmountInWei = web3.utils.toWei(this.bidAmount, "ether");
       console.log(`Bid amount in Wei: ${bidAmountInWei}`);
 
@@ -46,8 +48,8 @@ export default {
         value: bidAmountInWei,
       });
 
-      this.highestBid = await this.auction.methods.highestBid().call(); //https://web3js.readthedocs.io/en/v1.2.0/web3-eth-contract.html#methods-mymethod-call
-      this.highestBid = web3.utils.fromWei(this.highestBid, "ether");
+      //this.highestBid = await this.auction.methods.highestBid().call(); //https://web3js.readthedocs.io/en/v1.2.0/web3-eth-contract.html#methods-mymethod-call
+      //this.highestBid = web3.utils.fromWei(this.highestBid, "ether");
       console.log(`Highest bid: ${this.highestBid}`);
     },
   },
