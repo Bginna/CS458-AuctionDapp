@@ -9,21 +9,14 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "bidAmount",
+						"name": "",
 						"type": "uint256"
 					}
 				],
-				"name": "bid",
-				"outputs": [],
-				"stateMutability": "payable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "contractAddress",
+				"name": "auctionList",
 				"outputs": [
 					{
-						"internalType": "address",
+						"internalType": "contract Auction",
 						"name": "",
 						"type": "address"
 					}
@@ -32,29 +25,26 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "highestBid",
-				"outputs": [
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "auctionTitle",
+						"type": "string"
+					},
 					{
 						"internalType": "uint256",
-						"name": "",
+						"name": "startPrice",
 						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "highestBidder",
-				"outputs": [
+					},
 					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
+						"internalType": "string",
+						"name": "auctionDescription",
+						"type": "string"
 					}
 				],
-				"stateMutability": "view",
+				"name": "createAuction",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			}
 		],
@@ -71,7 +61,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/Auction.sol": "Auction"
+			"contracts/Auction.sol": "AuctionHouse"
 		},
 		"evmVersion": "paris",
 		"libraries": {},
@@ -86,11 +76,11 @@
 	},
 	"sources": {
 		"contracts/Auction.sol": {
-			"keccak256": "0x19ad69b5ee68e50c37d9b88c2c787e89b8350d1436cd14d72823a065a09e4ee9",
+			"keccak256": "0x36fd9a315540f51b8bcb86bd7f91b090124f0bed566f3fd0d467b1a3d2b1d946",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://c6c5c735300aa767fd8abf12d9d654cfdfbc7cf1172486bf6e454a57f6cdaeb5",
-				"dweb:/ipfs/QmZtDPNDt9j3WAmSoAsiD7Tf8M5R58VdBCMnKKsScf491R"
+				"bzz-raw://1259d31d58efc4c198dd7815ec01d9e805cbe928313fa83b6dfd8908d82b672e",
+				"dweb:/ipfs/QmZahWfaFCunFJTtcfrSo7YqWD9XDaBQVQibsuu5dbDjFs"
 			]
 		}
 	},

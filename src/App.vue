@@ -10,6 +10,10 @@
         <button class="btn btn-primary" type="submit">Place Bid</button>
       </b-input-group>
     </form>
+    
+    <form @submit.prevent="createAuction">
+      <button class="btn btn-primary" type="submit">Create a New Auction</button>
+    </form>
   </div>
 </template>
 
@@ -18,7 +22,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import '@/assets/style.css';
 import web3 from '@/web3';
 import AuctionContract from "../contracts/artifacts/Auction.json" //json file compiled from remix
-const contractAddress = '0x8ec80b506951302Cc1908289FD7F427740F9b466'; //replace with your contract address
+const contractAddress = '0x007e06D85F588A94b77f1eCB5003543C32cCA335'; //replace with your contract address
 
 export default {
   //declare and initialize data
@@ -33,6 +37,7 @@ export default {
     this.auction = new web3.eth.Contract(AuctionContract.abi, contractAddress); //https://web3js.readthedocs.io/en/v1.2.0/web3-eth-contract.html
     console.log(AuctionContract.abi);
     this.highestBid = await this.auction.methods.highestBid().call();
+    //console.log(this.highestBid);
     //this.highestBid = web3.utils.fromWei(this.highestBid, "ether");
     //this.highestBidder = await this.auction.methods.highestBidder().call();
   },
@@ -50,10 +55,14 @@ export default {
         value: bidAmountInWei,
       });
 
-      //this.highestBid = await this.auction.methods.highestBid().call(); //https://web3js.readthedocs.io/en/v1.2.0/web3-eth-contract.html#methods-mymethod-call
-      //this.highestBid = web3.utils.fromWei(this.highestBid, "ether");
+      this.highestBid = await this.auction.methods.highestBid().call(); //https://web3js.readthedocs.io/en/v1.2.0/web3-eth-contract.html#methods-mymethod-call
+      this.highestBid = web3.utils.fromWei(this.highestBid, "ether");
       console.log(`Highest bid: ${this.highestBid}`);
     },
+    async createAuction() {
+      console.log('Creating a new auction...');
+      
+    }
   },
 };
 </script>
